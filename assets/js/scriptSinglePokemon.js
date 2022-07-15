@@ -18,12 +18,12 @@ async function getSinglePokemon() {
     document.querySelector(".single-pokemon").insertAdjacentHTML(
         "beforeend",
         `
-    <div class="card-pokemon">
-    <h2 class="name-pokemon">${data.name}</h2>
-    <img src="${data.sprites.other.home.front_default}"/>
-    <h3 class="id-pokemon">ID: ${data.id} </h3>
-    <h3 class="type-pokemon">${arrayTypes}</h3>
-    <span class="pokemon-description">${dataEspecies.flavor_text_entries[9].flavor_text}</span>
+    <div class="card-single-pokemon">
+    <h2 class="name-single-pokemon">${data.name}</h2>
+    <img src="${data.sprites.other.dream_world.front_default}"/>
+    <h3 class="id-single-pokemon">ID: ${data.id} </h3>
+    <h3 class="type-single-pokemon">${arrayTypes}</h3>
+    <span class="single-pokemon-description">${dataEspecies.flavor_text_entries[9].flavor_text}</span>
 </div>
     `
     );
