@@ -26,11 +26,12 @@ section.all-pokemons {
     border: solid 2px black;
     height: 50vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin: 50px 0px;
     background: rgb(24, 26, 27);
     flex-direction: column;
     align-items: center;
+    border-radius: 5px;
 }
 a.link-pokemon {
     display: flex;
@@ -52,12 +53,26 @@ h2.name-pokemon {
     display: flex;
     justify-content: center;
 }
+.container-span-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 span.type-pokemon {
     text-transform: uppercase;
     font-size: 18px;
     padding: 0px 10px;
     color: rgb(201, 196, 189);
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 h3.id-pokemon {
     text-transform: uppercase;
@@ -90,7 +105,7 @@ span.type-pokemon.type-electric {
     background-color: rgb(126, 111, 11);
 }
 span.type-pokemon.type-ground{
-    background-color: rgb(123, 107, 5);
+    background-image: linear-gradient(rgb(123, 107, 5) 50%, rgb(137, 122, 53) 50%);
 }
 span.type-pokemon.type-fairy{
     background-color: rgb(92, 3, 65);
@@ -114,5 +129,9 @@ span.type-pokemon.type-ghost{
     background-color: rgb(94, 74, 126);
 }
 span.type-pokemon.type-dragon{
-    background-image: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%) !important;
+    background-image: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
+}
+span.type-pokemon.type-dark{
+    background-image: linear-gradient(rgb(84, 91, 95) 50%, rgb(84, 91, 95) 50%);
+
 }

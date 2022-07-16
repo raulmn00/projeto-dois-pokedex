@@ -18,21 +18,23 @@ async function getAllPokemons() {
             const imgPokemon = document.createElement("img");
             const namePokemon = document.createElement("h2");
             const idPokemon = document.createElement("h3");
-            divCardPokemon.appendChild(idPokemon);
+            const containerSpanType = document.createElement("div");
 
+            divCardPokemon.appendChild(idPokemon);
             divCardPokemon.appendChild(divContainerImg);
             divCardPokemon.appendChild(imgPokemon);
-
             ancoraPokemon.appendChild(imgPokemon);
             ancoraPokemon.appendChild(namePokemon);
             divCardPokemon.appendChild(ancoraPokemon);
+            divCardPokemon.appendChild(containerSpanType);
+            sectionAllPokemons.appendChild(divCardPokemon);
+
             namePokemon.classList.add("name-pokemon");
             ancoraPokemon.classList.add("link-pokemon");
             idPokemon.classList.add("id-pokemon");
-
             divCardPokemon.classList.add("card-pokemon");
-
-            sectionAllPokemons.appendChild(divCardPokemon);
+            containerSpanType.classList.add("container-span-type");
+            
 
             namePokemon.innerText = dataPoke.name;
             idPokemon.innerText = `ID: ${dataPoke.id}`;
@@ -69,7 +71,7 @@ async function getAllPokemons() {
                         typesPokemon.classList.add(`type-${tipo}`);
                     }
                 });
-                divCardPokemon.appendChild(typesPokemon);
+                containerSpanType.appendChild(typesPokemon);
             });
         }
 
