@@ -1,6 +1,8 @@
+let limit = 10;
+let offset = 0;
 async function getAllPokemons() {
     const resp = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
     );
     const data = await resp.json();
     //console.log(data);
@@ -8,13 +10,6 @@ async function getAllPokemons() {
         const respPoke = await fetch(item.url);
         const dataPoke = await respPoke.json();
         //console.log(dataPoke);
-
-        let arrayTypes = [];
-        for (let i = 0; i < dataPoke.types.length; i++) {
-            arrayTypes.push(dataPoke.types[i].type.name);
-
-            //console.log(dataPoke.types[i].type.name);
-        }
         {
             const sectionAllPokemons = document.querySelector(".all-pokemons");
             const divCardPokemon = document.createElement("div");
@@ -27,9 +22,10 @@ async function getAllPokemons() {
 
             divCardPokemon.appendChild(divContainerImg);
             divCardPokemon.appendChild(imgPokemon);
-            divCardPokemon.appendChild(ancoraPokemon);
-            ancoraPokemon.appendChild(namePokemon);
 
+            ancoraPokemon.appendChild(imgPokemon);
+            ancoraPokemon.appendChild(namePokemon);
+            divCardPokemon.appendChild(ancoraPokemon);
             namePokemon.classList.add("name-pokemon");
             ancoraPokemon.classList.add("link-pokemon");
             idPokemon.classList.add("id-pokemon");
@@ -41,6 +37,7 @@ async function getAllPokemons() {
             namePokemon.innerText = dataPoke.name;
             idPokemon.innerText = `ID: ${dataPoke.id}`;
             ancoraPokemon.href = `./pokemon.html?name=${dataPoke.name}`;
+            ancoraPokemon.target = "blank";
             imgPokemon.src = `${dataPoke.sprites.other.dream_world.front_default}`;
             dataPoke.types.forEach((item) => {
                 console.log(dataPoke.types);
@@ -79,5 +76,14 @@ async function getAllPokemons() {
         //console.log(dataEspecies.flavor_text_entries[0].flavor_text);
     });
 }
-
 getAllPokemons();
+
+function getMorePokemon() {
+    offset += 10;
+    getAllPokemons();
+}
+
+const btnMore = document.querySelector(".btn-more");
+btnMore.addEventListener("click", function(){
+    getMorePokemon();
+});
