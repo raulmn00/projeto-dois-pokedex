@@ -34,7 +34,6 @@ async function getAllPokemons() {
             idPokemon.classList.add("id-pokemon");
             divCardPokemon.classList.add("card-pokemon");
             containerSpanType.classList.add("container-span-type");
-            
 
             namePokemon.innerText = dataPoke.name;
             idPokemon.innerText = `ID: ${dataPoke.id}`;
@@ -86,6 +85,6 @@ function getMorePokemon() {
 }
 
 const btnMore = document.querySelector(".btn-more");
-btnMore.addEventListener("click", function(){
+btnMore.addEventListener("click", function () {
     getMorePokemon();
 });
