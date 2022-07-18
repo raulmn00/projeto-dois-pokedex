@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
     margin: 0;
     padding: 0;
-    font-family: Roboto, Arial;
+    font-family: 'Press Start 2P', cursive;
 }
 body {
     display: flex;
@@ -15,6 +16,9 @@ header.header-index {
     justify-content: center;
     align-items: center;
 }
+h1.title-index {
+    font-family: 'Press Start 2P', cursive;
+}
 section.all-pokemons {
     display: flex;
     flex-wrap: wrap;
@@ -24,9 +28,9 @@ section.all-pokemons {
 .card-pokemon {
     width: 25%;
     border: solid 2px black;
-    height: 50vh;
+    height: 60vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 50px 0px;
     background: rgb(24, 26, 27);
     flex-direction: column;
@@ -40,6 +44,7 @@ a.link-pokemon {
     justify-content: space-evenly;
     text-decoration: none;
     color: rgb(201, 196, 189);
+    
 }
 .card-pokemon img {
     width: 150px;
@@ -48,6 +53,7 @@ h2.name-pokemon {
     text-align: center;
     text-transform: uppercase;
     color: rgb(201, 196, 189);
+    margin-top: 30px;
 }
 .container-img {
     display: flex;
@@ -61,10 +67,10 @@ h2.name-pokemon {
 
 span.type-pokemon {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 14px;
     padding: 0px 10px;
     color: rgb(201, 196, 189);
-    width: 80px;
+    width: 100px;
     height: 30px;
     display: flex;
     justify-content: center;

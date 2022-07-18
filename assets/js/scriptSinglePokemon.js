@@ -33,7 +33,7 @@ async function getSinglePokemon() {
         sectionSinglePokemon.appendChild(cardSinglePokemon);
 
         data.types.forEach((item) => {
-            console.log(data.types);
+            //console.log(data.types);
             const typeSinglePokemon = document.createElement("span");
             typeSinglePokemon.classList.add("type-single-pokemon");
             typeSinglePokemon.innerText = item.type.name;
@@ -65,6 +65,27 @@ async function getSinglePokemon() {
             cardSinglePokemon.appendChild(typeSinglePokemon);
         });
     }
-    //console.log(data);
+    const evolutionChainUrl = dataEspecies.evolution_chain.url;
+    const textEvolutionChain = await fetch(evolutionChainUrl);
+    const dataEvolutionChain = await textEvolutionChain.json();
+    let textThirdEvolution = "";
+    
+    let textFirstEvolution = dataEvolutionChain.chain.species.name;
+    let textSecondEvolution = dataEvolutionChain.chain.evolves_to[0].species.name;
+    if(dataEvolutionChain.chain.evolves_to[0].evolves_to[0] === undefined){
+        textThirdEvolution = "";
+    }else {
+        textThirdEvolution = dataEvolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+    }
+    //console.log(dataEvolutionChain.chain.evolves_to[0].evolves_to[0])
+    console.log(textFirstEvolution);
+    console.log(textSecondEvolution);
+    console.log(textThirdEvolution);
+
+    console.log(dataEvolutionChain.chain.evolves_to);
+
+    
+    
+
 }
 getSinglePokemon();
