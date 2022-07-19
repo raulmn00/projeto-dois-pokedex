@@ -141,6 +141,7 @@ section.evolution-chain {
     align-content: space-around;
     margin-top: 50px;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 .card-evolution {
     display: flex;
@@ -257,4 +258,137 @@ a.ancora-third-pokemon {
     align-items: center;
     height: 40vh;
     margin: 25px 0;
+}
+img.img-evolution-eevee {
+    width: 250px;
+}
+.card-evolucao-eevee-vaporeon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-jolteon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-flareon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-espeon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-umbreon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-leafeon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-glaceon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.card-evolucao-eevee-sylveon {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: solid 2px black;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+    background: rgb(24, 26, 27);
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+span.type-evolution-eevee {
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 0px 10px;
+    color: rgb(201, 196, 189);
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+span.title-evolution {
+    text-transform: uppercase;
 }

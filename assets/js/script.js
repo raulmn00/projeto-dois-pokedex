@@ -39,7 +39,7 @@ async function getAllPokemons() {
             idPokemon.innerText = `ID: ${dataPoke.id}`;
             ancoraPokemon.href = `./pokemon.html?name=${dataPoke.name}`;
             ancoraPokemon.target = "blank";
-            imgPokemon.src = `${dataPoke.sprites.other.dream_world.front_default}`;
+            imgPokemon.src = `${dataPoke.sprites.other['official-artwork'].front_default}`;
             dataPoke.types.forEach((item) => {
                 console.log(dataPoke.types);
                 const typesPokemon = document.createElement("span");
