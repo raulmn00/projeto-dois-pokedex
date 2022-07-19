@@ -1,4 +1,4 @@
-let limit = 20;
+let limit = 100;
 let offset = 0;
 async function getAllPokemons() {
     const resp = await fetch(
@@ -80,7 +80,7 @@ async function getAllPokemons() {
 getAllPokemons();
 
 function getMorePokemon() {
-    offset += 10;
+    offset += 100;
     getAllPokemons();
 }
 

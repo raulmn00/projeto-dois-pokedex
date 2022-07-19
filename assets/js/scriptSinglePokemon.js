@@ -72,9 +72,11 @@ async function getSinglePokemon() {
             containerTypesSinglePokemon.appendChild(typeSinglePokemon);
         });
     }
+
     const evolutionChainUrl = dataEspecies.evolution_chain.url;
     const textEvolutionChain = await fetch(evolutionChainUrl);
     const dataEvolutionChain = await textEvolutionChain.json();
+
     let textThirdEvolution = "";
 
     let textFirstEvolution = dataEvolutionChain.chain.species.name;
@@ -87,9 +89,9 @@ async function getSinglePokemon() {
             dataEvolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
     }
     //console.log(dataEvolutionChain.chain.evolves_to[0].evolves_to[0])
-    console.log(textFirstEvolution);
-    console.log(textSecondEvolution);
-    console.log(textThirdEvolution);
+    //console.log(textFirstEvolution);
+    //console.log(textSecondEvolution);
+    //console.log(textThirdEvolution);
 
     const sectionEvolutionChain = document.querySelector(".evolution-chain");
 
@@ -101,14 +103,18 @@ async function getSinglePokemon() {
     const titleFirstEvolution = document.createElement("span");
     titleFirstEvolution.classList.add("title-first-evolution");
     const containerTypesFirstEvolution = document.createElement("div");
+    const ancoraFirstPokemon = document.createElement("a");
+    ancoraFirstPokemon.classList.add("ancora-first-pokemon");
     containerTypesFirstEvolution.classList.add(
         "container-types-first-evolution"
     );
 
     cardFirstEvolution.appendChild(idFirstEvolution);
-    cardFirstEvolution.appendChild(imageFirstEvolution);
-    cardFirstEvolution.appendChild(titleFirstEvolution);
+    ancoraFirstPokemon.appendChild(imageFirstEvolution);
+    ancoraFirstPokemon.appendChild(titleFirstEvolution);
+    cardFirstEvolution.appendChild(ancoraFirstPokemon);
     cardFirstEvolution.appendChild(containerTypesFirstEvolution);
+    
     sectionEvolutionChain.appendChild(cardFirstEvolution);
 
     const respFirstPokemon = await fetch(
@@ -119,6 +125,7 @@ async function getSinglePokemon() {
 
     idFirstEvolution.innerText = `ID: ${dataFirstPokemon.id}`;
     titleFirstEvolution.innerText = dataFirstPokemon.name;
+    ancoraFirstPokemon.href=`./pokemon.html?name=${dataFirstPokemon.name}`;
     imageFirstEvolution.src =
         dataFirstPokemon.sprites.other.dream_world.front_default;
     dataFirstPokemon.types.forEach((item) => {
@@ -161,13 +168,16 @@ async function getSinglePokemon() {
     const titleSecondEvolution = document.createElement("span");
     titleSecondEvolution.classList.add("title-second-evolution");
     const containerTypesSecondEvolution = document.createElement("div");
+    const ancoraSecondPokemon = document.createElement("a");
+    ancoraSecondPokemon.classList.add("ancora-second-pokemon");
     containerTypesSecondEvolution.classList.add(
         "container-types-second-evolution"
     );
 
     cardSecondEvolution.appendChild(idSecondEvolution);
-    cardSecondEvolution.appendChild(imageSecondEvolution);
-    cardSecondEvolution.appendChild(titleSecondEvolution);
+    ancoraSecondPokemon.appendChild(imageSecondEvolution);
+    ancoraSecondPokemon.appendChild(titleSecondEvolution);
+    cardSecondEvolution.appendChild(ancoraSecondPokemon);
     cardSecondEvolution.appendChild(containerTypesSecondEvolution);
     sectionEvolutionChain.appendChild(cardSecondEvolution);
 
@@ -179,6 +189,7 @@ async function getSinglePokemon() {
 
     idSecondEvolution.innerText = `ID: ${dataSecondPokemon.id}`;
     titleSecondEvolution.innerText = dataSecondPokemon.name;
+    ancoraSecondPokemon.href=`./pokemon.html?name=${dataSecondPokemon.name}`;
     imageSecondEvolution.src =
         dataSecondPokemon.sprites.other.dream_world.front_default;
     dataSecondPokemon.types.forEach((item) => {
@@ -222,13 +233,16 @@ async function getSinglePokemon() {
         const titleThirdEvolution = document.createElement("span");
         titleThirdEvolution.classList.add("title-third-evolution");
         const containerTypesThirdEvolution = document.createElement("div");
+        const ancoraThirdPokemon = document.createElement("a");
+        ancoraThirdPokemon.classList.add("ancora-third-pokemon");
         containerTypesThirdEvolution.classList.add(
             "container-types-third-evolution"
         );
 
         cardThirdEvolution.appendChild(idThirdEvolution);
-        cardThirdEvolution.appendChild(imageThirdEvolution);
-        cardThirdEvolution.appendChild(titleThirdEvolution);
+        ancoraThirdPokemon.appendChild(imageThirdEvolution);
+        ancoraThirdPokemon.appendChild(titleThirdEvolution);
+        cardThirdEvolution.appendChild(ancoraThirdPokemon);
         cardThirdEvolution.appendChild(containerTypesThirdEvolution);
         sectionEvolutionChain.appendChild(cardThirdEvolution);
 
@@ -239,6 +253,7 @@ async function getSinglePokemon() {
 
         idThirdEvolution.innerText = `ID: ${dataThirdPokemon.id}`;
         titleThirdEvolution.innerText = dataThirdPokemon.name;
+        ancoraThirdPokemon.href=`./pokemon.html?name=${dataThirdPokemon.name}`;
         imageThirdEvolution.src =
             dataThirdPokemon.sprites.other.dream_world.front_default;
         dataThirdPokemon.types.forEach((item) => {
