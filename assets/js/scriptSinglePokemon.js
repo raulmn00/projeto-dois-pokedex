@@ -10,6 +10,7 @@ async function getSinglePokemon() {
     const data = await resp.json();
     const textoEspecies = await fetch(data.species.url);
     const dataEspecies = await textoEspecies.json();
+    
     {
         const sectionSinglePokemon = document.querySelector(".single-pokemon");
         const cardSinglePokemon = document.createElement("div");
@@ -21,6 +22,36 @@ async function getSinglePokemon() {
         const singlePokemonDescription = document.createElement("span");
         singlePokemonDescription.classList.add("single-pokemon-description");
         const containerTypesSinglePokemon = document.createElement("div");
+        const containerStatusSinglePokemon = document.createElement("div");
+        containerStatusSinglePokemon.classList.add("container-status-single-pokemon");
+        const statusHpSinglePokemon = document.createElement("span");
+        const statusAttackSinglePokemon = document.createElement("span");
+        const statusDefenseSinglePokemon = document.createElement("span");
+        const statusSpecialAttackSinglePokemon = document.createElement("span");
+        const statusSpecialDefenseSinglePokemon = document.createElement("span");
+        const statusSpeedSinglePokemon = document.createElement("span");
+        data.stats.forEach( (status) => {
+            console.log(status);
+            if(status.stat.name === 'hp'){
+                statusHpSinglePokemon.innerText = `HP: ${status.base_stat}`;
+            }else if(status.stat.name ==='attack'){
+                statusAttackSinglePokemon.innerText = `Attack: ${status.base_stat}`;
+            }else if(status.stat.name === 'defense'){
+                statusDefenseSinglePokemon.innerText = `Defense: ${status.base_stat}`;
+            }else if(status.stat.name === 'special-attack'){
+                statusSpecialAttackSinglePokemon.innerText = `Special Attack: ${status.base_stat}`;
+            }else if(status.stat.name === 'special-defense'){
+                statusSpecialDefenseSinglePokemon.innerText = `Special Defense: ${status.base_stat}`;
+            }else if(status.stat.name === 'speed'){
+                statusSpeedSinglePokemon.innerText = `Speed: ${status.base_stat}`;
+            }
+        });
+        containerStatusSinglePokemon.appendChild(statusHpSinglePokemon);
+        containerStatusSinglePokemon.appendChild(statusAttackSinglePokemon);
+        containerStatusSinglePokemon.appendChild(statusDefenseSinglePokemon);
+        containerStatusSinglePokemon.appendChild(statusSpecialAttackSinglePokemon);
+        containerStatusSinglePokemon.appendChild(statusSpecialDefenseSinglePokemon);
+        containerStatusSinglePokemon.appendChild(statusSpeedSinglePokemon);
         containerTypesSinglePokemon.classList.add(
             "container-types-single-pokemon"
         );
@@ -35,6 +66,7 @@ async function getSinglePokemon() {
         cardSinglePokemon.appendChild(imgSinglePokemon);
         cardSinglePokemon.appendChild(nameSinglePokemon);
         cardSinglePokemon.appendChild(singlePokemonDescription);
+        cardSinglePokemon.appendChild(containerStatusSinglePokemon);
         cardSinglePokemon.appendChild(containerTypesSinglePokemon);
 
         sectionSinglePokemon.appendChild(cardSinglePokemon);

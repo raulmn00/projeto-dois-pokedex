@@ -37,7 +37,7 @@ section.single-pokemon {
 .card-single-pokemon {
     width: 45%;
     border: solid 2px black;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: space-evenly;
     margin: 50px 0px;
@@ -399,4 +399,19 @@ a.ancora-evolucao-eevee {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+}
+.container-status-single-pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25%;
+    justify-content: space-evenly;
+}
+footer {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+    color: rgb(24, 26, 27);
+    border-top: solid 2px rgb(24, 26, 27);
 }

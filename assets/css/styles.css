@@ -148,3 +148,30 @@ span.type-pokemon.type-dragon {
 span.type-pokemon.type-dark {
     background-image: linear-gradient(rgb(84, 91, 95) 50%, rgb(84, 91, 95) 50%);
 }
+footer {
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+    color: rgb(24, 26, 27);
+    border-top: solid 2px rgb(24, 26, 27);
+}
+button.btn-more {
+    border: solid 2px rgb(24, 26, 27);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: rgb(24, 26, 27);
+    color: rgb(201, 196, 189);
+}
+
+button.btn-more:hover {
+    border: solid 2px rgb(24, 26, 27);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: rgb(201, 196, 189);
+    color: rgb(24, 26, 27);
+}
