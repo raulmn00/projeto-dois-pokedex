@@ -48,8 +48,9 @@ section.single-pokemon {
 }
 span.single-pokemon-description {
     text-align: center;
-    word-spacing: 0.1rem;
-    text-transform: lowercase;
+    word-spacing: 0.4rem;
+    line-height: 1.4rem;
+    text-transform: uppercase;
 }
 span.type-single-pokemon {
     text-transform: uppercase;
@@ -391,4 +392,11 @@ span.type-evolution-eevee {
 }
 span.title-evolution {
     text-transform: uppercase;
+}
+a.ancora-evolucao-eevee {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }

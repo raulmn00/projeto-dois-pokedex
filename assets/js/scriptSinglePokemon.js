@@ -28,7 +28,7 @@ async function getSinglePokemon() {
         nameSinglePokemon.innerText = data.name;
         idSinglePokemon.innerText = `ID: ${data.id}`;
         imgSinglePokemon.src = `${data.sprites.other['official-artwork'].front_default}`;
-        singlePokemonDescription.innerText = `${dataEspecies.flavor_text_entries[9].flavor_text}`;
+        singlePokemonDescription.innerText = `${dataEspecies.flavor_text_entries[6].flavor_text}`;
         nameSinglePokemon.classList.add("name-single-pokemon");
 
         cardSinglePokemon.appendChild(idSinglePokemon);
@@ -73,7 +73,7 @@ async function getSinglePokemon() {
         });
     }
 
-    if (namePokemon === "eevee") {
+    if (namePokemon === "eevee" || namePokemon==="umbreon" || namePokemon=="vaporeon" || namePokemon === "jolteon" || namePokemon ==="flareon" || namePokemon === "espeon" || namePokemon === "leafeon" || namePokemon==="glaceon" || namePokemon === "sylveon") {
         const sectionEvolutionChainBody =
             document.querySelector(".evolution-chain");
         const dataEevee = await fetch(
@@ -106,6 +106,9 @@ async function getSinglePokemon() {
             
             let divCardEvolution = document.querySelector(`.card-evolucao-eevee-${nameEvolution}`);
             let titleEvolucaoEevee = document.createElement('span');
+            let ancoraEvolucaoEevee = document.createElement('a');
+            ancoraEvolucaoEevee.href = `./pokemon.html?name=${nameEvolution}`;
+            ancoraEvolucaoEevee.classList.add('ancora-evolucao-eevee');
             titleEvolucaoEevee.classList.add('title-evolution');
             titleEvolucaoEevee.innerText = `${nameEvolution}`;
             //console.log(respDataEvolution);
@@ -116,8 +119,9 @@ async function getSinglePokemon() {
             idEvolution.classList.add(`id-evolution-${nameEvolution}`);
             idEvolution.innerText = respDataEvolution.id;
             imgEvolution.src = `${respDataEvolution.sprites.other['official-artwork'].front_default}`;
-            divCardEvolution.appendChild(imgEvolution);
-            divCardEvolution.appendChild(titleEvolucaoEevee);
+            ancoraEvolucaoEevee.appendChild(imgEvolution);
+            ancoraEvolucaoEevee.appendChild(titleEvolucaoEevee);
+            divCardEvolution.appendChild(ancoraEvolucaoEevee);
             
 
             respDataEvolution.types.forEach( (item) => {
