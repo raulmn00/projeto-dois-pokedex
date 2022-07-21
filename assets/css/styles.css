@@ -11,10 +11,11 @@ body {
 }
 header.header-index {
     width: 100%;
-    height: 15vh;
+    height: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 h1.title-index {
     font-family: "Press Start 2P", cursive;
@@ -174,4 +175,68 @@ button.btn-more:hover {
     text-transform: uppercase;
     background: rgb(201, 196, 189);
     color: rgb(24, 26, 27);
+}
+
+section.search-pokemon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.card-search-pokemon {
+    background: rgb(24, 26, 27);
+    padding: 10px;
+    margin: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60vh;
+    width: 25%;
+    border-radius: 5px;
+}
+h3.id-search-pokemon {
+    color: rgb(201, 196, 189);
+    text-align: center;
+}
+img.img-search-pokemon {
+    width: 250px;
+}
+h2.name-search-pokemon {
+    font-size: 18px;
+    text-align: center;
+    color: rgb(201, 196, 189);
+    text-transform: uppercase;
+}
+a.link-search-pokemon {
+    text-decoration: none;
+}
+.area-search {
+    display: flex;
+    padding-top: 30px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+button#search {
+    border: solid 2px rgb(24, 26, 27);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: rgb(24, 26, 27);
+    color: rgb(201, 196, 189);
+    width: 120px;
+    margin-left: 30px;
+}
+button#search:hover{
+    border: solid 2px rgb(24, 26, 27);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: rgb(201, 196, 189);
+    color: rgb(24, 26, 27);
+}
+input#search-input {
+    height: 30px;
 }

@@ -6,6 +6,7 @@ async function getAllPokemons() {
     );
     const data = await resp.json();
     //console.log(data);
+
     data.results.forEach(async function (item) {
         const respPoke = await fetch(item.url);
         const dataPoke = await respPoke.json();
@@ -39,9 +40,9 @@ async function getAllPokemons() {
             idPokemon.innerText = `ID: ${dataPoke.id}`;
             ancoraPokemon.href = `./pokemon.html?name=${dataPoke.name}`;
             ancoraPokemon.target = "blank";
-            imgPokemon.src = `${dataPoke.sprites.other['official-artwork'].front_default}`;
+            imgPokemon.src = `${dataPoke.sprites.other["official-artwork"].front_default}`;
             dataPoke.types.forEach((item) => {
-                console.log(dataPoke.types);
+                //console.log(dataPoke.types);
                 const typesPokemon = document.createElement("span");
                 typesPokemon.classList.add("type-pokemon");
                 typesPokemon.innerText = item.type.name;
@@ -78,6 +79,39 @@ async function getAllPokemons() {
     });
 }
 getAllPokemons();
+
+const inputSearch = document.querySelector("#search-input");
+inputSearch.addEventListener("keyup", function () {
+    if (inputSearch.value === "") {
+        sectionAllPokemons.style.display = "flex";
+    }
+});
+const sectionAllPokemons = document.querySelector(".all-pokemons");
+
+const buttonSearch = document.querySelector("#search");
+buttonSearch.addEventListener("click", function () {
+    searchPokemon(inputSearch.value);
+});
+
+async function searchPokemon(id) {
+    sectionAllPokemons.style.display = "none";
+    const idSearchPokemon = document.querySelector(".id-search-pokemon");
+    const ancoraSearchPokemon = document.querySelector(".link-search-pokemon");
+    const nameSearchPokemon = document.querySelector(".name-search-pokemon");
+    const imgSearchPokemon = document.querySelector(".img-search-pokemon");
+
+    const respSearchPokemon = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${id}`
+    );
+    const dataSearchPokemon = await respSearchPokemon.json();
+
+    idSearchPokemon.innerText = `ID: ${dataSearchPokemon.id}`;
+    nameSearchPokemon.innerText = dataSearchPokemon.name;
+    ancoraSearchPokemon.href = `./pokemon.html?name=${dataSearchPokemon.name}`;
+    imgSearchPokemon.src = `${dataSearchPokemon.sprites.other["official-artwork"].front_default}`;
+
+    console.log(dataSearchPokemon);
+}
 
 function getMorePokemon() {
     offset += 100;

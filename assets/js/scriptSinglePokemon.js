@@ -10,7 +10,7 @@ async function getSinglePokemon() {
     const data = await resp.json();
     const textoEspecies = await fetch(data.species.url);
     const dataEspecies = await textoEspecies.json();
-    
+
     {
         const sectionSinglePokemon = document.querySelector(".single-pokemon");
         const cardSinglePokemon = document.createElement("div");
@@ -23,34 +23,41 @@ async function getSinglePokemon() {
         singlePokemonDescription.classList.add("single-pokemon-description");
         const containerTypesSinglePokemon = document.createElement("div");
         const containerStatusSinglePokemon = document.createElement("div");
-        containerStatusSinglePokemon.classList.add("container-status-single-pokemon");
+        containerStatusSinglePokemon.classList.add(
+            "container-status-single-pokemon"
+        );
         const statusHpSinglePokemon = document.createElement("span");
         const statusAttackSinglePokemon = document.createElement("span");
         const statusDefenseSinglePokemon = document.createElement("span");
         const statusSpecialAttackSinglePokemon = document.createElement("span");
-        const statusSpecialDefenseSinglePokemon = document.createElement("span");
+        const statusSpecialDefenseSinglePokemon =
+            document.createElement("span");
         const statusSpeedSinglePokemon = document.createElement("span");
-        data.stats.forEach( (status) => {
+        data.stats.forEach((status) => {
             console.log(status);
-            if(status.stat.name === 'hp'){
+            if (status.stat.name === "hp") {
                 statusHpSinglePokemon.innerText = `HP: ${status.base_stat}`;
-            }else if(status.stat.name ==='attack'){
+            } else if (status.stat.name === "attack") {
                 statusAttackSinglePokemon.innerText = `Attack: ${status.base_stat}`;
-            }else if(status.stat.name === 'defense'){
+            } else if (status.stat.name === "defense") {
                 statusDefenseSinglePokemon.innerText = `Defense: ${status.base_stat}`;
-            }else if(status.stat.name === 'special-attack'){
+            } else if (status.stat.name === "special-attack") {
                 statusSpecialAttackSinglePokemon.innerText = `Special Attack: ${status.base_stat}`;
-            }else if(status.stat.name === 'special-defense'){
+            } else if (status.stat.name === "special-defense") {
                 statusSpecialDefenseSinglePokemon.innerText = `Special Defense: ${status.base_stat}`;
-            }else if(status.stat.name === 'speed'){
+            } else if (status.stat.name === "speed") {
                 statusSpeedSinglePokemon.innerText = `Speed: ${status.base_stat}`;
             }
         });
         containerStatusSinglePokemon.appendChild(statusHpSinglePokemon);
         containerStatusSinglePokemon.appendChild(statusAttackSinglePokemon);
         containerStatusSinglePokemon.appendChild(statusDefenseSinglePokemon);
-        containerStatusSinglePokemon.appendChild(statusSpecialAttackSinglePokemon);
-        containerStatusSinglePokemon.appendChild(statusSpecialDefenseSinglePokemon);
+        containerStatusSinglePokemon.appendChild(
+            statusSpecialAttackSinglePokemon
+        );
+        containerStatusSinglePokemon.appendChild(
+            statusSpecialDefenseSinglePokemon
+        );
         containerStatusSinglePokemon.appendChild(statusSpeedSinglePokemon);
         containerTypesSinglePokemon.classList.add(
             "container-types-single-pokemon"
@@ -58,7 +65,7 @@ async function getSinglePokemon() {
 
         nameSinglePokemon.innerText = data.name;
         idSinglePokemon.innerText = `ID: ${data.id}`;
-        imgSinglePokemon.src = `${data.sprites.other['official-artwork'].front_default}`;
+        imgSinglePokemon.src = `${data.sprites.other["official-artwork"].front_default}`;
         singlePokemonDescription.innerText = `${dataEspecies.flavor_text_entries[6].flavor_text}`;
         nameSinglePokemon.classList.add("name-single-pokemon");
 
@@ -105,7 +112,17 @@ async function getSinglePokemon() {
         });
     }
 
-    if (namePokemon === "eevee" || namePokemon==="umbreon" || namePokemon=="vaporeon" || namePokemon === "jolteon" || namePokemon ==="flareon" || namePokemon === "espeon" || namePokemon === "leafeon" || namePokemon==="glaceon" || namePokemon === "sylveon") {
+    if (
+        namePokemon === "eevee" ||
+        namePokemon === "umbreon" ||
+        namePokemon == "vaporeon" ||
+        namePokemon === "jolteon" ||
+        namePokemon === "flareon" ||
+        namePokemon === "espeon" ||
+        namePokemon === "leafeon" ||
+        namePokemon === "glaceon" ||
+        namePokemon === "sylveon"
+    ) {
         const sectionEvolutionChainBody =
             document.querySelector(".evolution-chain");
         const dataEevee = await fetch(
@@ -123,42 +140,46 @@ async function getSinglePokemon() {
         const responseEvolutionChainEevee = await evolutionChainEevee.json();
         responseEvolutionChainEevee.chain.evolves_to.forEach((evolucao) => {
             let cardEvolucaoEevee = document.createElement("div");
-            cardEvolucaoEevee.classList.add(`card-evolucao-eevee-${evolucao.species.name}`);
+            cardEvolucaoEevee.classList.add(
+                `card-evolucao-eevee-${evolucao.species.name}`
+            );
             let titleEvolucaoEevee = document.createElement("span");
             titleEvolucaoEevee.classList.add("title-evolucao-eevee");
             sectionEvolutionChainBody.appendChild(cardEvolucaoEevee);
         });
 
-        
         for (let i = 0; i < 8; i++) {
-            
-            let nameEvolution = responseEvolutionChainEevee.chain.evolves_to[i].species.name;
-            const dataEvolution = await fetch(`https://pokeapi.co/api/v2/pokemon/${nameEvolution}`);
+            let nameEvolution =
+                responseEvolutionChainEevee.chain.evolves_to[i].species.name;
+            const dataEvolution = await fetch(
+                `https://pokeapi.co/api/v2/pokemon/${nameEvolution}`
+            );
             const respDataEvolution = await dataEvolution.json();
-            
-            let divCardEvolution = document.querySelector(`.card-evolucao-eevee-${nameEvolution}`);
-            let titleEvolucaoEevee = document.createElement('span');
-            let ancoraEvolucaoEevee = document.createElement('a');
+
+            let divCardEvolution = document.querySelector(
+                `.card-evolucao-eevee-${nameEvolution}`
+            );
+            let titleEvolucaoEevee = document.createElement("span");
+            let ancoraEvolucaoEevee = document.createElement("a");
             ancoraEvolucaoEevee.href = `./pokemon.html?name=${nameEvolution}`;
-            ancoraEvolucaoEevee.classList.add('ancora-evolucao-eevee');
-            titleEvolucaoEevee.classList.add('title-evolution');
+            ancoraEvolucaoEevee.classList.add("ancora-evolucao-eevee");
+            titleEvolucaoEevee.classList.add("title-evolution");
             titleEvolucaoEevee.innerText = `${nameEvolution}`;
             //console.log(respDataEvolution);
-            let imgEvolution = document.createElement('img');
-            imgEvolution.classList.add('img-evolution-eevee');
-            let idEvolution = document.createElement('span');
+            let imgEvolution = document.createElement("img");
+            imgEvolution.classList.add("img-evolution-eevee");
+            let idEvolution = document.createElement("span");
             divCardEvolution.appendChild(idEvolution);
             idEvolution.classList.add(`id-evolution-${nameEvolution}`);
             idEvolution.innerText = respDataEvolution.id;
-            imgEvolution.src = `${respDataEvolution.sprites.other['official-artwork'].front_default}`;
+            imgEvolution.src = `${respDataEvolution.sprites.other["official-artwork"].front_default}`;
             ancoraEvolucaoEevee.appendChild(imgEvolution);
             ancoraEvolucaoEevee.appendChild(titleEvolucaoEevee);
             divCardEvolution.appendChild(ancoraEvolucaoEevee);
-            
 
-            respDataEvolution.types.forEach( (item) => {
-                let typeEvolutionEevee = document.createElement('span');
-                typeEvolutionEevee.classList.add('type-evolution-eevee');
+            respDataEvolution.types.forEach((item) => {
+                let typeEvolutionEevee = document.createElement("span");
+                typeEvolutionEevee.classList.add("type-evolution-eevee");
                 typeEvolutionEevee.innerText = item.type.name;
                 const types = [
                     "normal",
@@ -180,16 +201,16 @@ async function getSinglePokemon() {
                     "steel",
                     "fairy",
                 ];
-                types.forEach( (tipoEvolucao) => {
-                    if(tipoEvolucao === typeEvolutionEevee.textContent){
-                        typeEvolutionEevee.classList.add(`type-${tipoEvolucao}`);
+                types.forEach((tipoEvolucao) => {
+                    if (tipoEvolucao === typeEvolutionEevee.textContent) {
+                        typeEvolutionEevee.classList.add(
+                            `type-${tipoEvolucao}`
+                        );
                     }
-                })
+                });
                 divCardEvolution.appendChild(typeEvolutionEevee);
-            })
-
+            });
         }
-
     } else {
         const evolutionChainUrl = dataEspecies.evolution_chain.url;
         const textEvolutionChain = await fetch(evolutionChainUrl);
@@ -249,7 +270,7 @@ async function getSinglePokemon() {
         titleFirstEvolution.innerText = dataFirstPokemon.name;
         ancoraFirstPokemon.href = `./pokemon.html?name=${dataFirstPokemon.name}`;
         imageFirstEvolution.src =
-            dataFirstPokemon.sprites.other['official-artwork'].front_default;
+            dataFirstPokemon.sprites.other["official-artwork"].front_default;
         dataFirstPokemon.types.forEach((item) => {
             const typesFirstEvolution = document.createElement("span");
             typesFirstEvolution.classList.add("type-first-evolution");
@@ -313,7 +334,7 @@ async function getSinglePokemon() {
         titleSecondEvolution.innerText = dataSecondPokemon.name;
         ancoraSecondPokemon.href = `./pokemon.html?name=${dataSecondPokemon.name}`;
         imageSecondEvolution.src =
-            dataSecondPokemon.sprites.other['official-artwork'].front_default;
+            dataSecondPokemon.sprites.other["official-artwork"].front_default;
         dataSecondPokemon.types.forEach((item) => {
             const typesSecondEvolution = document.createElement("span");
             typesSecondEvolution.classList.add("type-second-evolution");
@@ -382,7 +403,9 @@ async function getSinglePokemon() {
             titleThirdEvolution.innerText = dataThirdPokemon.name;
             ancoraThirdPokemon.href = `./pokemon.html?name=${dataThirdPokemon.name}`;
             imageThirdEvolution.src =
-                dataThirdPokemon.sprites.other['official-artwork'].front_default;
+                dataThirdPokemon.sprites.other[
+                    "official-artwork"
+                ].front_default;
             dataThirdPokemon.types.forEach((item) => {
                 const typesThirdEvolution = document.createElement("span");
                 typesThirdEvolution.classList.add("type-third-evolution");
