@@ -240,3 +240,32 @@ button#search:hover{
 input#search-input {
     height: 30px;
 }
+@media (max-width: 767px) {
+    .area-search {
+        display: flex;
+        padding-top: 30px;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    section.all-pokemons {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .card-pokemon {
+        width: 100%;
+        border: solid 2px black;
+        height: 60vh;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 50px 0px;
+        background: rgb(24, 26, 27);
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+    }
+}

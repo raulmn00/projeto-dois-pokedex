@@ -415,3 +415,54 @@ footer {
     color: rgb(24, 26, 27);
     border-top: solid 2px rgb(24, 26, 27);
 }
+@media(max-width: 767px){
+    .card-single-pokemon {
+        width: 95%;
+        border: solid 2px black;
+        height: 120vh;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 50px 0px;
+        background: rgb(24, 26, 27);
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    section.evolution-chain {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .card-evolution {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        border: solid 2px black;
+        height: 70vh;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 30px 0px;
+        background: rgb(24, 26, 27);
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+    }
+    button#search {
+        border: solid 2px rgb(24, 26, 27);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        background: rgb(24, 26, 27);
+        color: rgb(201, 196, 189);
+        width: 120px;
+        margin-left: 0px;
+    }
+}
